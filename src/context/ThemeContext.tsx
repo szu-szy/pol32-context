@@ -1,6 +1,7 @@
 // krok 1 - tworzenie typu kontekstu
 
 import { createContext, useState } from "react";
+import { useThemeContext } from "./hooks/useThemeContext";
 
 type ThemeContextType = {
   isDarkMode: boolean;
@@ -22,12 +23,7 @@ type Props = {
 };
 
 export const ThemContextProvider = ({ children }: Props) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // mozliwa inna opcja ustalania theme
-  // const [theme, setTheme] = useState("dark | light | gray");
-
-  const toggleTheme = () => setIsDarkMode((prev) => !prev);
+  const { isDarkMode, toggleTheme } = useThemeContext();
 
   return (
     // ustawiamy jako value - obiekt który udostepniamy potomkom providera - children
