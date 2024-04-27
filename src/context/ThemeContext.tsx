@@ -24,6 +24,9 @@ type Props = {
 export const ThemContextProvider = ({ children }: Props) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // mozliwa inna opcja ustalania theme
+  // const [theme, setTheme] = useState("dark | light | gray");
+
   const toggleTheme = () => setIsDarkMode((prev) => !prev);
 
   return (

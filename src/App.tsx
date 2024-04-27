@@ -9,6 +9,19 @@ import { List } from "./components/List/List";
 import { AppContext, AppContextProvider } from "./context/AppContext";
 import { ThemeContext } from "./context/ThemeContext";
 
+// mozliwa opcja uzaleznienia configu od theme
+// odczyt CONFIG[theme]
+export const CONFIG = {
+  dark: {
+    backgroundColor: "black",
+    color: "white",
+  },
+  light: {
+    backgroundColor: "white",
+    color: "black",
+  },
+};
+
 function App() {
   const { count, handleCount } = useContext(AppContext);
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
