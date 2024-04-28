@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AppContextProvider } from "./context/AppContext";
 import { ThemContextProvider } from "./context/ThemeContext";
+import { ProductContextProvider } from "./context/ProductContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <AppContextProvider>
       <ThemContextProvider>
-        <App />
+        <ProductContextProvider>
+          <App />
+        </ProductContextProvider>
       </ThemContextProvider>
     </AppContextProvider>
   </React.StrictMode>

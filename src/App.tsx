@@ -8,6 +8,7 @@ import { Link } from "./components/Link/Link";
 import { List } from "./components/List/List";
 import { AppContext, AppContextProvider } from "./context/AppContext";
 import { ThemeContext } from "./context/ThemeContext";
+import { ProductContext } from "./context/ProductContext";
 
 // mozliwa opcja uzaleznienia configu od theme
 // odczyt CONFIG[theme]
@@ -25,6 +26,7 @@ export const CONFIG = {
 function App() {
   const { count, handleCount } = useContext(AppContext);
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  const { products, getSum, remove, add } = useContext(ProductContext);
 
   return (
     <div
@@ -34,7 +36,31 @@ function App() {
         color: isDarkMode ? "white" : "black",
       }}
     >
-      <Banner text="nasz text dla bannera" />
+      {/* Zadanie 2 - context */}
+      <h2>Lista produktów</h2>
+      {products.length > 0 ? (
+        <ul>
+          {products.map(({ id, title, price }) => (
+            <li key={id}>
+              Nazwa: {title} - cena: {price}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      <p>Całkowita wartość koszyka: {getSum()} PLN</p>
+      <button onClick={() => remove(3)}>Usuń 3 elemenet</button>
+      <button
+        onClick={() =>
+          add({
+            id: 11231321313,
+            title: "nowy produkt",
+            price: 10000,
+          })
+        }
+      >
+        Dodaj nowy produkt
+      </button>
+      {/* <Banner text="nasz text dla bannera" />
       <Button>nasz tekst1</Button>
       <button onClick={() => handleCount(5)}>Dodaj count globalny</button>
       <p>{count}</p>
@@ -44,7 +70,7 @@ function App() {
       <Link href="www.google.com">1231</Link>
       <Input />
       <Form />
-      <List />
+      <List /> */}
     </div>
   );
 }

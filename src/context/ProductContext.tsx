@@ -1,6 +1,6 @@
 // krok 1 - tworzenie typu kontekstu
 
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 // wiemy:
 // dodania i usuwanie produktów
@@ -33,7 +33,7 @@ export const ProductContext = createContext<ProductContextType>(
 // krok 3 - tworzenie naszego providera z propsami
 
 type Props = {
-  children: JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 };
 
 export const ProductContextProvider = ({ children }: Props) => {
@@ -59,8 +59,26 @@ export const ProductContextProvider = ({ children }: Props) => {
     return products.reduce((acc, product) => acc + product.price, 0);
   };
 
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch("https://dummyjson.com/products");
+
+      if (!res.ok) throw new Error("Cannot fetch products");
+
+      const { products } = await res.json();
+
+      if (products) setProducts(products);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   // musimy jakos pobrac liste elementów
   // useEffect + jakas funkcja asynchroniczna ktora pobiera dane
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   return (
     <ProductContext.Provider
