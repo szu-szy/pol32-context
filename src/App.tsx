@@ -10,6 +10,9 @@ import { AppContext, AppContextProvider } from "./context/AppContext";
 import { ThemeContext } from "./context/ThemeContext";
 import { ProductContext } from "./context/ProductContext";
 import { SongsContext } from "./context/SongsContext";
+import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { toggleTheme } from "./redux/slice";
 
 // mozliwa opcja uzaleznienia configu od theme
 // odczyt CONFIG[theme]
@@ -29,6 +32,10 @@ function App() {
   // const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   // const { products, getSum, remove, add } = useContext(ProductContext);
   const { songs, addToFav } = useContext(SongsContext);
+  const dispatch = useAppDispatch();
+  const { isDarkMode } = useAppSelector((state) => state.appReducer);
+
+  const handleTheme = () => dispatch(toggleTheme());
 
   return (
     <div className="App">
@@ -72,17 +79,8 @@ function App() {
       >
         Add to fav
       </button>
-      {/* <Banner text="nasz text dla bannera" />
-      <Button>nasz tekst1</Button>
-      <button onClick={() => handleCount(5)}>Dodaj count globalny</button>
-      <p>{count}</p>
-      <button onClick={toggleTheme}>
-        Włącz tryb: {isDarkMode ? "Jasny" : "ciemny"}
-      </button>
-      <Link href="www.google.com">1231</Link>
-      <Input />
-      <Form />
-      <List /> */}
+      {/* Redux */}
+      <button onClick={handleTheme}>Toggle theme</button>
     </div>
   );
 }

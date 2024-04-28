@@ -7,6 +7,8 @@ import { AppContextProvider } from "./context/AppContext";
 import { ThemContextProvider } from "./context/ThemeContext";
 import { ProductContextProvider } from "./context/ProductContext";
 import { SongsContextProvider } from "./context/SongsContext";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,7 +19,9 @@ root.render(
       <ThemContextProvider>
         <ProductContextProvider>
           <SongsContextProvider>
-            <App />
+            <Provider store={store}>
+              <App />
+            </Provider>
           </SongsContextProvider>
         </ProductContextProvider>
       </ThemContextProvider>
