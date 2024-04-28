@@ -1,46 +1,89 @@
-# Getting Started with Create React App
+# Zadania redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Implementacja prostego licznika:
 
-## Available Scripts
+Stwórz aplikację React, która będzie zawierać prosty licznik. Wykorzystaj Redux do przechowywania stanu licznika oraz do obsługi akcji zwiększania i zmniejszania wartości licznika.
 
-In the project directory, you can run:
+2. Lista zadań do zrobienia:
+Utwórz aplikację, która będzie zawierać listę zadań do wykonania. Zaimplementuj Redux, aby przechowywać stan listy zadań oraz obsługiwać dodawanie, usuwanie i oznaczanie zadań jako zakończone.
 
-### `npm start`
+3. Formularz logowania z uwierzytelnianiem:
+Stwórz formularz logowania w aplikacji React. Użyj Redux do przechowywania stanu zalogowanego użytkownika oraz do obsługi akcji logowania i wylogowywania.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Zadania context
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Aplikacja do zarządzania playlistą muzyczną:
+Utwórz aplikację, która pozwoli użytkownikowi zarządzać własną playlistą muzyczną. Wykorzystaj React Context API do przechowywania listy utworów muzycznych oraz informacji o aktualnie odtwarzanym utworze. Dodaj funkcje takie jak dodawanie utworów, zmiana kolejności odtwarzania i odtwarzanie/pauzowanie utworów. Dodaj również możliwość dodania listy do ulubionych, która będzie wyświetlana w innym komponencie (liczba ulubionych wwystarczy). - Pracujemy na statycznej liscie dlatego:
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+const songs = [
+  {
+    id: 1,
+    title: "Shape of You",
+    artist: "Ed Sheeran",
+    duration: "3:53",
+    album: "÷ (Divide)"
+  },
+  {
+    id: 2,
+    title: "Blinding Lights",
+    artist: "The Weeknd",
+    duration: "3:20",
+    album: "After Hours"
+  },
+  {
+    id: 3,
+    title: "Dance Monkey",
+    artist: "Tones and I",
+    duration: "3:30",
+    album: "The Kids Are Coming"
+  },
+  {
+    id: 4,
+    title: "Someone Like You",
+    artist: "Adele",
+    duration: "4:45",
+    album: "21"
+  },
+  {
+    id: 5,
+    title: "Uptown Funk",
+    artist: "Mark Ronson ft. Bruno Mars",
+    duration: "4:30",
+    album: "Uptown Special"
+  },
+  {
+    id: 6,
+    title: "Can't Stop the Feeling!",
+    artist: "Justin Timberlake",
+    duration: "3:56",
+    album: "Trolls: Original Motion Picture Soundtrack"
+  },
+  {
+    id: 7,
+    title: "Havana",
+    artist: "Camila Cabello ft. Young Thug",
+    duration: "3:36",
+    album: "Camila"
+  },
+  {
+    id: 8,
+    title: "Believer",
+    artist: "Imagine Dragons",
+    duration: "3:24",
+    album: "Evolve"
+  },
+  {
+    id: 9,
+    title: "Shallow",
+    artist: "Lady Gaga, Bradley Cooper",
+    duration: "3:35",
+    album: "A Star Is Born Soundtrack"
+  },
+  {
+    id: 10,
+    title: "Watermelon Sugar",
+    artist: "Harry Styles",
+    duration: "2:54",
+    album: "Fine Line"
+  }
+];

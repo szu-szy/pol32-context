@@ -9,6 +9,7 @@ import { List } from "./components/List/List";
 import { AppContext, AppContextProvider } from "./context/AppContext";
 import { ThemeContext } from "./context/ThemeContext";
 import { ProductContext } from "./context/ProductContext";
+import { SongsContext } from "./context/SongsContext";
 
 // mozliwa opcja uzaleznienia configu od theme
 // odczyt CONFIG[theme]
@@ -24,20 +25,15 @@ export const CONFIG = {
 };
 
 function App() {
-  const { count, handleCount } = useContext(AppContext);
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-  const { products, getSum, remove, add } = useContext(ProductContext);
+  // const { count, handleCount } = useContext(AppContext);
+  // const { isDarkMode, toggleTheme } = useContext(ThemeContext);
+  // const { products, getSum, remove, add } = useContext(ProductContext);
+  const { songs, addToFav } = useContext(SongsContext);
 
   return (
-    <div
-      className="App"
-      style={{
-        backgroundColor: isDarkMode ? "black" : "white",
-        color: isDarkMode ? "white" : "black",
-      }}
-    >
+    <div className="App">
       {/* Zadanie 2 - context */}
-      <h2>Lista produktów</h2>
+      {/* <h2>Lista produktów</h2>
       {products.length > 0 ? (
         <ul>
           {products.map(({ id, title, price }) => (
@@ -59,6 +55,22 @@ function App() {
         }
       >
         Dodaj nowy produkt
+      </button> */}
+      {/* Zadanie 4 */}
+      <h2>lista piosenek</h2>
+      <p>ilość piosenek: {songs.length}</p>
+      <button
+        onClick={() =>
+          addToFav({
+            id: 2,
+            title: "Blinding Lights",
+            artist: "The Weeknd",
+            duration: "3:20",
+            album: "After Hours",
+          })
+        }
+      >
+        Add to fav
       </button>
       {/* <Banner text="nasz text dla bannera" />
       <Button>nasz tekst1</Button>

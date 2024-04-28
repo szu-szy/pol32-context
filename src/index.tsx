@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { AppContextProvider } from "./context/AppContext";
 import { ThemContextProvider } from "./context/ThemeContext";
 import { ProductContextProvider } from "./context/ProductContext";
+import { SongsContextProvider } from "./context/SongsContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,7 +16,9 @@ root.render(
     <AppContextProvider>
       <ThemContextProvider>
         <ProductContextProvider>
-          <App />
+          <SongsContextProvider>
+            <App />
+          </SongsContextProvider>
         </ProductContextProvider>
       </ThemContextProvider>
     </AppContextProvider>
